@@ -1,0 +1,16 @@
+# HealthWise console theme.
+# primaryColor matches categorical slot 1 in hw_theme.py, so Streamlit's own
+# widgets (sliders, tags, active tab) sit in the same validated palette as the
+# charts instead of the default red, which reads as an error state.
+[theme]
+primaryColor = "#2A78D6"
+backgroundColor = "#F6F7F9"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#14161A"
+font = "sans serif"
+
+[server]
+headless = true
+
+[browser]
+gatherUsageStats = false
