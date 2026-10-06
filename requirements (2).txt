@@ -1,0 +1,15 @@
+# HealthWise — Smart Premium Engine
+# Streamlit Community Cloud installs ONLY what is listed here. Without this file
+# the container ships bare Streamlit, which is why `import joblib` failed.
+#
+# scikit-learn and joblib are pinned deliberately: healthwise_model.joblib was
+# pickled with these exact versions, and a pickled sklearn Pipeline is not
+# guaranteed to load across versions. If you ever retrain the model, re-pin these
+# to whatever produced the new file.
+
+streamlit==1.64.0
+pandas==3.0.2
+numpy==2.4.4
+plotly==7.1.0
+scikit-learn==1.8.0
+joblib==1.5.3
