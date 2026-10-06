@@ -1,0 +1,12 @@
+Column,Layer,Description
+health_score,Engineered,"SUM(metric score x weight), 0-100, HIGHER = HEALTHIER"
+health_band,Engineered,Poor / Fair / Good / Excellent band over health_score
+smoker_score,Engineered,Metric score 0-100 (100 = non-smoker)
+age_score,Engineered,Metric score 0-100 (100 = age 18)
+bmi_score,Engineered,Metric score 0-100 (100 = WHO healthy band)
+exercise_score,Engineered,Metric score 0-100 (100 = 7 workouts/week)
+predicted_tier,Model output,Stage-1 predicted risk tier (out-of-fold)
+predicted_cost,Model output,Stage-2 predicted annual claim cost (out-of-fold)
+final_premium,Model output,predicted_cost x 1.23 (15% expense + 8% margin)
+top_risk_factors,Model output,Ranked top contributing risk factors
+premium_explanation,Model output,Plain-English individualised reason

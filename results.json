@@ -1,0 +1,1578 @@
+{
+  "raw_shape": [
+    1203,
+    17
+  ],
+  "raw_dtypes": {
+    "customer_id": "str",
+    "age": "int64",
+    "sex": "str",
+    "bmi": "float64",
+    "weight_kg": "float64",
+    "children": "int64",
+    "smoker": "str",
+    "region": "str",
+    "exercise_freq": "float64",
+    "date_of_birth": "str",
+    "favorite_color": "str",
+    "zodiac_sign": "str",
+    "lucky_number": "int64",
+    "preferred_contact": "str",
+    "marketing_opt_in": "str",
+    "annual_charge": "float64",
+    "risk_tier": "str"
+  },
+  "cleaning": {
+    "rows_raw": 1203,
+    "cols_raw": 17,
+    "duplicate_rows": 3,
+    "rows_after_dedup": 1200,
+    "missing_before": {
+      "bmi": 18,
+      "exercise_freq": 18
+    },
+    "bmi_median": 28.0,
+    "exercise_median": 4.0,
+    "missing_after": 0,
+    "invalid": {
+      "age_out_of_range": 0,
+      "bmi_impossible": 0,
+      "negative_charge": 0,
+      "exercise_out_of_range": 0,
+      "children_negative": 0
+    },
+    "outliers_iqr": {
+      "age": 0,
+      "bmi": 6,
+      "children": 0,
+      "exercise_freq": 0,
+      "annual_charge": 265
+    },
+    "rows_clean": 1200
+  },
+  "health_weights": {
+    "smoker": 0.4597213432830546,
+    "age": 0.28711627374215515,
+    "bmi": 0.24419931852438576,
+    "exercise_freq": 0.008963064450404488
+  },
+  "health_weight_diagnostics": {
+    "std_coefficients": {
+      "smoker_bin": 9274.109441524612,
+      "age": 5792.090761137466,
+      "bmi": 4926.312947246538,
+      "exercise_freq": 180.81483894322784
+    },
+    "abs_std_coefficients": {
+      "smoker_bin": 9274.109441524612,
+      "age": 5792.090761137466,
+      "bmi": 4926.312947246538,
+      "exercise_freq": 180.81483894322784
+    }
+  },
+  "health_score_stats": {
+    "count": 1200.0,
+    "mean": 66.546025,
+    "std": 23.332375898886667,
+    "min": 10.15,
+    "25%": 44.88,
+    "50%": 73.73,
+    "75%": 84.875,
+    "max": 99.87
+  },
+  "health_band_counts": {
+    "Excellent": 554,
+    "Good": 280,
+    "Poor": 196,
+    "Fair": 170
+  },
+  "model_features": [
+    "age",
+    "bmi",
+    "children",
+    "exercise_freq",
+    "sex_male",
+    "smoker_yes",
+    "region_north",
+    "region_south",
+    "region_west"
+  ],
+  "hypothesis": {
+    "smoker_t": 24.08333239046624,
+    "smoker_p": 2.272333150107528e-84,
+    "n_smoker": 364,
+    "n_nonsmoker": 836,
+    "mean_smoker": 34510.78967032967,
+    "mean_nonsmoker": 14473.620466507176,
+    "median_smoker": 42486.35,
+    "median_nonsmoker": 14379.325,
+    "abs_diff": 20037.169203822494,
+    "ratio": 2.3843923329473578,
+    "cohens_d": 1.8365812064284694,
+    "age_r": 0.41012861838832737,
+    "age_p": 6.87931198910819e-50,
+    "charge_skew": 1.1509407075782785
+  },
+  "pearson_vs_charge": {
+    "age": 0.4101,
+    "bmi": 0.3654,
+    "weight_kg": 0.3679,
+    "children": 0.0575,
+    "exercise_freq": -0.2681,
+    "lucky_number": -0.0313
+  },
+  "spearman_vs_charge": {
+    "age": 0.4760611814897996,
+    "bmi": 0.41695229438925957,
+    "weight_kg": 0.41601114733172756,
+    "children": 0.1287956558566529,
+    "exercise_freq": -0.3033620816681122,
+    "lucky_number": -0.027289322621564072
+  },
+  "categorical_audit": {
+    "sex": {
+      "spread_pct": 10.597485511714424,
+      "anova_F": 7.015875464711545,
+      "anova_p": 0.008185221876578656,
+      "n_categories": 2,
+      "min_group_n": 597
+    },
+    "smoker": {
+      "spread_pct": 97.49706327402937,
+      "anova_F": 855.3555681112949,
+      "anova_p": 2.4092195216858442e-142,
+      "n_categories": 2,
+      "min_group_n": 364
+    },
+    "region": {
+      "spread_pct": 6.8132660424957345,
+      "anova_F": 0.5521975926110518,
+      "anova_p": 0.6467288649863681,
+      "n_categories": 4,
+      "min_group_n": 294
+    },
+    "favorite_color": {
+      "spread_pct": 8.048390796625755,
+      "anova_F": 0.4652864203174842,
+      "anova_p": 0.7612587251321622,
+      "n_categories": 5,
+      "min_group_n": 230
+    },
+    "zodiac_sign": {
+      "spread_pct": 17.4942144115112,
+      "anova_F": 0.6094764886893306,
+      "anova_p": 0.8220056593470346,
+      "n_categories": 12,
+      "min_group_n": 83
+    },
+    "preferred_contact": {
+      "spread_pct": 2.4096175612414545,
+      "anova_F": 0.14985644225194575,
+      "anova_p": 0.860847694136249,
+      "n_categories": 3,
+      "min_group_n": 383
+    },
+    "marketing_opt_in": {
+      "spread_pct": 3.0820165677428393,
+      "anova_F": 0.5900123976391994,
+      "anova_p": 0.4425657020235022,
+      "n_categories": 2,
+      "min_group_n": 588
+    }
+  },
+  "vif_before": {
+    "age": 1.0047320501129637,
+    "bmi": 37.83730733890305,
+    "weight_kg": 37.80478312680055,
+    "children": 1.0001317156818312,
+    "exercise_freq": 2.5349359652874157
+  },
+  "vif_after": {
+    "age": 1.0021662312488302,
+    "bmi": 2.514275066193405,
+    "children": 1.000107616515136,
+    "exercise_freq": 2.510806127797552
+  },
+  "redundancy": {
+    "age_vs_dob_corr": 1.0,
+    "bmi_vs_weight_corr": 0.9865252743425323
+  },
+  "lasso_audit": [
+    {
+      "alpha": 10,
+      "r2": 0.6842175764529232,
+      "n_kept": 29,
+      "kept": [
+        "age",
+        "bmi",
+        "weight_kg",
+        "children",
+        "exercise_freq",
+        "lucky_number",
+        "sex_male",
+        "smoker_yes",
+        "region_north",
+        "region_south",
+        "region_west",
+        "favorite_color_green",
+        "favorite_color_purple",
+        "favorite_color_red",
+        "favorite_color_yellow",
+        "zodiac_sign_Aries",
+        "zodiac_sign_Cancer",
+        "zodiac_sign_Capricorn",
+        "zodiac_sign_Gemini",
+        "zodiac_sign_Leo",
+        "zodiac_sign_Libra",
+        "zodiac_sign_Pisces",
+        "zodiac_sign_Sagittarius",
+        "zodiac_sign_Scorpio",
+        "zodiac_sign_Taurus",
+        "zodiac_sign_Virgo",
+        "preferred_contact_phone",
+        "preferred_contact_sms",
+        "marketing_opt_in_yes"
+      ]
+    },
+    {
+      "alpha": 100,
+      "r2": 0.6889101762361708,
+      "n_kept": 19,
+      "kept": [
+        "age",
+        "bmi",
+        "weight_kg",
+        "children",
+        "lucky_number",
+        "sex_male",
+        "smoker_yes",
+        "region_north",
+        "region_south",
+        "favorite_color_green",
+        "favorite_color_purple",
+        "favorite_color_yellow",
+        "zodiac_sign_Aries",
+        "zodiac_sign_Cancer",
+        "zodiac_sign_Libra",
+        "zodiac_sign_Pisces",
+        "zodiac_sign_Sagittarius",
+        "zodiac_sign_Taurus",
+        "marketing_opt_in_yes"
+      ]
+    },
+    {
+      "alpha": 400,
+      "r2": 0.6905517334321827,
+      "n_kept": 6,
+      "kept": [
+        "age",
+        "bmi",
+        "weight_kg",
+        "smoker_yes",
+        "favorite_color_green",
+        "zodiac_sign_Pisces"
+      ]
+    },
+    {
+      "alpha": 800,
+      "r2": 0.6851361650468728,
+      "n_kept": 4,
+      "kept": [
+        "age",
+        "bmi",
+        "weight_kg",
+        "smoker_yes"
+      ]
+    },
+    {
+      "alpha": 1500,
+      "r2": 0.6638569702898105,
+      "n_kept": 4,
+      "kept": [
+        "age",
+        "bmi",
+        "weight_kg",
+        "smoker_yes"
+      ]
+    }
+  ],
+  "ols_clean_r2": 0.6912808079596034,
+  "ols_alljunk_r2": 0.6830933271102486,
+  "classification_comparison": [
+    {
+      "model": "Logistic Regression",
+      "train_acc": 0.7864583333333334,
+      "test_acc": 0.8291666666666667,
+      "gap": -0.04270833333333335,
+      "balanced_acc": 0.8037919449504148,
+      "precision_macro": 0.8424633294177886,
+      "recall_macro": 0.8037919449504148,
+      "f1_macro": 0.8184165031305485,
+      "roc_auc_ovr": 0.9340746629052165,
+      "cv_mean": 0.775,
+      "cv_std": 0.02595401917066238
+    },
+    {
+      "model": "Decision Tree (d=3)",
+      "train_acc": 0.8947916666666667,
+      "test_acc": 0.9125,
+      "gap": -0.017708333333333326,
+      "balanced_acc": 0.8872284962558187,
+      "precision_macro": 0.9343340234644582,
+      "recall_macro": 0.8872284962558187,
+      "f1_macro": 0.905489172750666,
+      "roc_auc_ovr": 0.9523936843837969,
+      "cv_mean": 0.8975,
+      "cv_std": 0.010736748938937604
+    },
+    {
+      "model": "Decision Tree (d=4)",
+      "train_acc": 0.9322916666666666,
+      "test_acc": 0.9458333333333333,
+      "gap": -0.013541666666666674,
+      "balanced_acc": 0.9366112123052014,
+      "precision_macro": 0.9535897435897436,
+      "recall_macro": 0.9366112123052014,
+      "f1_macro": 0.9444920201604693,
+      "roc_auc_ovr": 0.9759025281953293,
+      "cv_mean": 0.9241666666666667,
+      "cv_std": 0.010341394704992388
+    },
+    {
+      "model": "Decision Tree (d=5)",
+      "train_acc": 0.9364583333333333,
+      "test_acc": 0.9375,
+      "gap": -0.0010416666666667185,
+      "balanced_acc": 0.9277717061323618,
+      "precision_macro": 0.9456983297732714,
+      "recall_macro": 0.9277717061323618,
+      "f1_macro": 0.9358805116826293,
+      "roc_auc_ovr": 0.9713308819568781,
+      "cv_mean": 0.915,
+      "cv_std": 0.010736748938937607
+    },
+    {
+      "model": "Decision Tree (d=10)",
+      "train_acc": 0.984375,
+      "test_acc": 0.9083333333333333,
+      "gap": 0.07604166666666667,
+      "balanced_acc": 0.9035094110503946,
+      "precision_macro": 0.9076240366562947,
+      "recall_macro": 0.9035094110503946,
+      "f1_macro": 0.9054346606008344,
+      "roc_auc_ovr": 0.916460220473955,
+      "cv_mean": 0.8591666666666666,
+      "cv_std": 0.019614337159899718
+    },
+    {
+      "model": "Decision Tree (unpruned)",
+      "train_acc": 1.0,
+      "test_acc": 0.8875,
+      "gap": 0.11250000000000004,
+      "balanced_acc": 0.8901760777170612,
+      "precision_macro": 0.8833010777170612,
+      "recall_macro": 0.8901760777170612,
+      "f1_macro": 0.8865257159994001,
+      "roc_auc_ovr": 0.9139405021565267,
+      "cv_mean": 0.8425,
+      "cv_std": 0.01654119436773268
+    },
+    {
+      "model": "Random Forest",
+      "train_acc": 1.0,
+      "test_acc": 0.9458333333333333,
+      "gap": 0.054166666666666696,
+      "balanced_acc": 0.9401173851447076,
+      "precision_macro": 0.9496794871794871,
+      "recall_macro": 0.9401173851447076,
+      "f1_macro": 0.944720529178729,
+      "roc_auc_ovr": 0.9687234984519134,
+      "cv_mean": 0.9275,
+      "cv_std": 0.011055415967851347
+    }
+  ],
+  "clf_best": {
+    "name": "Decision Tree (d=4)",
+    "train_acc": 0.9322916666666666,
+    "test_acc": 0.9458333333333333,
+    "confusion_matrix": [
+      [
+        57,
+        4,
+        0
+      ],
+      [
+        3,
+        121,
+        1
+      ],
+      [
+        0,
+        5,
+        49
+      ]
+    ],
+    "labels": [
+      "Low",
+      "Medium",
+      "High"
+    ],
+    "report": {
+      "Low": {
+        "precision": 0.95,
+        "recall": 0.9344262295081968,
+        "f1-score": 0.9421487603305785,
+        "support": 61.0
+      },
+      "Medium": {
+        "precision": 0.9307692307692308,
+        "recall": 0.968,
+        "f1-score": 0.9490196078431372,
+        "support": 125.0
+      },
+      "High": {
+        "precision": 0.98,
+        "recall": 0.9074074074074074,
+        "f1-score": 0.9423076923076923,
+        "support": 54.0
+      },
+      "accuracy": 0.9458333333333333,
+      "macro avg": {
+        "precision": 0.9535897435897436,
+        "recall": 0.9366112123052014,
+        "f1-score": 0.9444920201604693,
+        "support": 240.0
+      },
+      "weighted avg": {
+        "precision": 0.9467339743589744,
+        "recall": 0.9458333333333333,
+        "f1-score": 0.9457630864382202,
+        "support": 240.0
+      }
+    },
+    "feature_importance": {
+      "age": 0.33,
+      "bmi": 0.5027,
+      "children": 0.0,
+      "exercise_freq": 0.0,
+      "sex_male": 0.0,
+      "smoker_yes": 0.1673,
+      "region_north": 0.0,
+      "region_south": 0.0,
+      "region_west": 0.0
+    }
+  },
+  "clf_logreg": {
+    "test_acc": 0.8291666666666667,
+    "train_acc": 0.7864583333333334,
+    "confusion_matrix": [
+      [
+        50,
+        10,
+        1
+      ],
+      [
+        11,
+        111,
+        3
+      ],
+      [
+        1,
+        15,
+        38
+      ]
+    ],
+    "report": {
+      "Low": {
+        "precision": 0.8064516129032258,
+        "recall": 0.819672131147541,
+        "f1-score": 0.8130081300813008,
+        "support": 61.0
+      },
+      "Medium": {
+        "precision": 0.8161764705882353,
+        "recall": 0.888,
+        "f1-score": 0.8505747126436781,
+        "support": 125.0
+      },
+      "High": {
+        "precision": 0.9047619047619048,
+        "recall": 0.7037037037037037,
+        "f1-score": 0.7916666666666666,
+        "support": 54.0
+      },
+      "accuracy": 0.8291666666666667,
+      "macro avg": {
+        "precision": 0.8424633294177886,
+        "recall": 0.8037919449504148,
+        "f1-score": 0.8184165031305485,
+        "support": 240.0
+      },
+      "weighted avg": {
+        "precision": 0.8336364586157042,
+        "recall": 0.8291666666666667,
+        "f1-score": 0.827772229230913,
+        "support": 240.0
+      }
+    }
+  },
+  "global_model": {
+    "MAE": 5697.9851928100825,
+    "MSE": 56514872.44535737,
+    "RMSE": 7517.637424441097,
+    "R2": 0.6912808079596031,
+    "adj_R2": 0.6792004917493267,
+    "train_R2": 0.7031518073926565,
+    "cv_R2_mean": 0.6954178914231022,
+    "coefficients": {
+      "age": 425.86,
+      "bmi": 854.96,
+      "children": 182.89,
+      "exercise_freq": 169.46,
+      "sex_male": -348.86,
+      "smoker_yes": 19896.72,
+      "region_north": -486.21,
+      "region_south": -882.68,
+      "region_west": -250.97
+    },
+    "intercept": -27125.65189818745
+  },
+  "per_tier": {
+    "Low": {
+      "n": 307,
+      "MAE": 377.6830583665832,
+      "RMSE": 459.64244507768154,
+      "R2": 0.8006703097982277,
+      "train_R2": 0.7889655249724757,
+      "cv_R2": 0.7548321925155378,
+      "strongest_feature": "age",
+      "simple_R2": 0.4068426948332038,
+      "multiple_R2": 0.8006703097982277,
+      "coefficients": {
+        "age": 57.89,
+        "bmi": 79.53,
+        "children": 257.03,
+        "exercise_freq": 43.7,
+        "sex_male": 361.71,
+        "smoker_yes": 2846.16,
+        "region_north": -19.52,
+        "region_south": 9.71,
+        "region_west": 16.23
+      },
+      "correlations": {
+        "age": 0.624,
+        "bmi": 0.346,
+        "children": 0.376,
+        "exercise_freq": -0.232,
+        "sex_male": 0.199,
+        "smoker_yes": 0.398,
+        "region_north": -0.071,
+        "region_south": 0.054,
+        "region_west": -0.029
+      }
+    },
+    "Medium": {
+      "n": 625,
+      "MAE": 734.1269311010757,
+      "RMSE": 934.4544832981034,
+      "R2": 0.7671240977205751,
+      "train_R2": 0.7788896643378502,
+      "cv_R2": 0.7573892986768368,
+      "strongest_feature": "smoker_yes",
+      "simple_R2": 0.3571277511900206,
+      "multiple_R2": 0.7671240977205751,
+      "coefficients": {
+        "age": 86.45,
+        "bmi": 165.75,
+        "children": 313.86,
+        "exercise_freq": -17.79,
+        "sex_male": 337.99,
+        "smoker_yes": 4185.13,
+        "region_north": 19.54,
+        "region_south": 39.73,
+        "region_west": 90.51
+      },
+      "correlations": {
+        "age": 0.142,
+        "bmi": 0.127,
+        "children": 0.265,
+        "exercise_freq": -0.06,
+        "sex_male": 0.088,
+        "smoker_yes": 0.569,
+        "region_north": 0.021,
+        "region_south": -0.047,
+        "region_west": 0.077
+      }
+    },
+    "High": {
+      "n": 268,
+      "MAE": 1919.0258348632535,
+      "RMSE": 2258.1140529826325,
+      "R2": 0.753984994992883,
+      "train_R2": 0.8249749195124544,
+      "cv_R2": 0.793893900365769,
+      "strongest_feature": "bmi",
+      "simple_R2": 0.12881182143309278,
+      "multiple_R2": 0.753984994992883,
+      "coefficients": {
+        "age": 191.44,
+        "bmi": 699.28,
+        "children": 514.45,
+        "exercise_freq": 29.54,
+        "sex_male": 816.37,
+        "smoker_yes": 7923.31,
+        "region_north": -135.4,
+        "region_south": -445.73,
+        "region_west": -122.04
+      },
+      "correlations": {
+        "age": 0.038,
+        "bmi": 0.559,
+        "children": 0.178,
+        "exercise_freq": -0.428,
+        "sex_male": 0.135,
+        "smoker_yes": 0.392,
+        "region_north": -0.071,
+        "region_south": 0.024,
+        "region_west": 0.004
+      }
+    }
+  },
+  "two_stage_oracle": {
+    "MAE": 907.9236974646402,
+    "RMSE": 1284.442063323124,
+    "R2": 0.9919683508643555
+  },
+  "alpha_sweeps": {
+    "Low": {
+      "sweep": [
+        {
+          "alpha": 0.01,
+          "ridge_R2": 0.8006670667504538,
+          "lasso_R2": 0.800673164482728
+        },
+        {
+          "alpha": 0.1,
+          "ridge_R2": 0.8006377719803913,
+          "lasso_R2": 0.8006989422344175
+        },
+        {
+          "alpha": 1,
+          "ridge_R2": 0.8003343360565106,
+          "lasso_R2": 0.8009426609949019
+        },
+        {
+          "alpha": 10,
+          "ridge_R2": 0.7963731428712256,
+          "lasso_R2": 0.8013361383219394
+        },
+        {
+          "alpha": 50,
+          "ridge_R2": 0.766639874120278,
+          "lasso_R2": 0.7815466417355712
+        },
+        {
+          "alpha": 100,
+          "ridge_R2": 0.7193422363120014,
+          "lasso_R2": 0.7374139717203725
+        },
+        {
+          "alpha": 200,
+          "ridge_R2": 0.626950023485227,
+          "lasso_R2": 0.5917653312850529
+        },
+        {
+          "alpha": 500,
+          "ridge_R2": 0.4375453818076577,
+          "lasso_R2": 0.10721909907564087
+        }
+      ],
+      "best_ridge": {
+        "alpha": 0.01,
+        "ridge_R2": 0.8006670667504538,
+        "lasso_R2": 0.800673164482728
+      },
+      "best_lasso": {
+        "alpha": 10,
+        "ridge_R2": 0.7963731428712256,
+        "lasso_R2": 0.8013361383219394
+      },
+      "lasso_coefficients": {
+        "age": 537.5,
+        "bmi": 284.9,
+        "children": 353.9,
+        "exercise_freq": 14.9,
+        "sex_male": 172.8,
+        "smoker_yes": 350.8,
+        "region_north": -0.9,
+        "region_south": 0.0,
+        "region_west": 0.0
+      }
+    },
+    "Medium": {
+      "sweep": [
+        {
+          "alpha": 0.01,
+          "ridge_R2": 0.7671190113518002,
+          "lasso_R2": 0.7671212319054744
+        },
+        {
+          "alpha": 0.1,
+          "ridge_R2": 0.767073127573245,
+          "lasso_R2": 0.7670949609739334
+        },
+        {
+          "alpha": 1,
+          "ridge_R2": 0.766603886609122,
+          "lasso_R2": 0.7667960260161978
+        },
+        {
+          "alpha": 10,
+          "ridge_R2": 0.7609944788119233,
+          "lasso_R2": 0.7645557091165283
+        },
+        {
+          "alpha": 50,
+          "ridge_R2": 0.7247495952391616,
+          "lasso_R2": 0.7522277848263561
+        },
+        {
+          "alpha": 100,
+          "ridge_R2": 0.6725718744873519,
+          "lasso_R2": 0.7276615786084439
+        },
+        {
+          "alpha": 200,
+          "ridge_R2": 0.5788111188537057,
+          "lasso_R2": 0.6497970381710374
+        },
+        {
+          "alpha": 500,
+          "ridge_R2": 0.40245020945976706,
+          "lasso_R2": 0.2579569876268454
+        }
+      ],
+      "best_ridge": {
+        "alpha": 0.01,
+        "ridge_R2": 0.7671190113518002,
+        "lasso_R2": 0.7671212319054744
+      },
+      "best_lasso": {
+        "alpha": 0.01,
+        "ridge_R2": 0.7671190113518002,
+        "lasso_R2": 0.7671212319054744
+      },
+      "lasso_coefficients": {
+        "age": 1162.4,
+        "bmi": 961.3,
+        "children": 437.8,
+        "exercise_freq": -21.1,
+        "sex_male": 169.0,
+        "smoker_yes": 1782.3,
+        "region_north": 8.8,
+        "region_south": 17.1,
+        "region_west": 38.4
+      }
+    },
+    "High": {
+      "sweep": [
+        {
+          "alpha": 0.01,
+          "ridge_R2": 0.7539866321718725,
+          "lasso_R2": 0.7539856431914796
+        },
+        {
+          "alpha": 0.1,
+          "ridge_R2": 0.754000372014719,
+          "lasso_R2": 0.7539914508492903
+        },
+        {
+          "alpha": 1,
+          "ridge_R2": 0.7540422902012597,
+          "lasso_R2": 0.7540481387098905
+        },
+        {
+          "alpha": 10,
+          "ridge_R2": 0.7472919654188642,
+          "lasso_R2": 0.7543692267300927
+        },
+        {
+          "alpha": 50,
+          "ridge_R2": 0.6691826689390741,
+          "lasso_R2": 0.7541836879589043
+        },
+        {
+          "alpha": 100,
+          "ridge_R2": 0.5775771339122613,
+          "lasso_R2": 0.7518523239547125
+        },
+        {
+          "alpha": 200,
+          "ridge_R2": 0.45671597411372555,
+          "lasso_R2": 0.7404814938695174
+        },
+        {
+          "alpha": 500,
+          "ridge_R2": 0.29195869290995624,
+          "lasso_R2": 0.6525757124628394
+        }
+      ],
+      "best_ridge": {
+        "alpha": 1,
+        "ridge_R2": 0.7540422902012597,
+        "lasso_R2": 0.7540481387098905
+      },
+      "best_lasso": {
+        "alpha": 10,
+        "ridge_R2": 0.7472919654188642,
+        "lasso_R2": 0.7543692267300927
+      },
+      "lasso_coefficients": {
+        "age": 2211.3,
+        "bmi": 3777.9,
+        "children": 722.4,
+        "exercise_freq": 0.0,
+        "sex_male": 388.7,
+        "smoker_yes": 3206.3,
+        "region_north": -26.9,
+        "region_south": -154.1,
+        "region_west": -24.5
+      }
+    }
+  },
+  "end_to_end": {
+    "stage1_acc": 0.9458333333333333,
+    "global": {
+      "MAE": 6166.747028311802,
+      "RMSE": 7571.041431452447,
+      "R2": 0.7153475670644518
+    },
+    "oracle_tier": {
+      "MAE": 816.475719657019,
+      "RMSE": 1174.8130057276878,
+      "R2": 0.9931460466223188
+    },
+    "predicted_tier": {
+      "MAE": 1534.7674289417619,
+      "RMSE": 4046.6000440598773,
+      "R2": 0.9186824625579085
+    },
+    "n_misclassified": 13,
+    "n_test": 240,
+    "MAE_misclassified": 14376.8293874767,
+    "MAE_correct": 799.3189467349149,
+    "mae_improvement_pct": 75.11220385892953
+  },
+  "learning_curves": {
+    "classifier_tree_best": {
+      "sizes": [
+        96,
+        219,
+        342,
+        466,
+        589,
+        713,
+        836,
+        960
+      ],
+      "train_mean": [
+        0.9479166666666666,
+        0.9397260273972602,
+        0.9461988304093566,
+        0.9407725321888412,
+        0.9368421052631579,
+        0.9338008415147264,
+        0.9358851674641148,
+        0.9352083333333333
+      ],
+      "train_std": [
+        0.03486083443891982,
+        0.02893694889087644,
+        0.017109636068219625,
+        0.010652080382824808,
+        0.011127992942732742,
+        0.010769342956775564,
+        0.008098713339622386,
+        0.007046472718869887
+      ],
+      "val_mean": [
+        0.8516666666666666,
+        0.8966666666666667,
+        0.9175000000000001,
+        0.9174999999999999,
+        0.915,
+        0.9199999999999999,
+        0.9199999999999999,
+        0.925
+      ],
+      "val_std": [
+        0.023658449277630653,
+        0.02048034287907419,
+        0.023481671339342314,
+        0.036742346141747706,
+        0.03297726489568233,
+        0.026536138880151112,
+        0.025193694096384976,
+        0.023124061542519347
+      ]
+    },
+    "global_linear": {
+      "sizes": [
+        96,
+        219,
+        342,
+        466,
+        589,
+        713,
+        836,
+        960
+      ],
+      "train_mean": [
+        0.7657942120370926,
+        0.7217732446239223,
+        0.7307968551788104,
+        0.7249956172160609,
+        0.7181799817021701,
+        0.7056330197387886,
+        0.7039381334806393,
+        0.702087102947188
+      ],
+      "train_std": [
+        0.03389557747818192,
+        0.022125793935354045,
+        0.018959732743906912,
+        0.01761496135748606,
+        0.013853287716462444,
+        0.012733852513404574,
+        0.010142642394755104,
+        0.00703982445081059
+      ],
+      "val_mean": [
+        0.663766749621607,
+        0.6845379085625257,
+        0.6897531967140267,
+        0.6923762904555422,
+        0.6934592297866873,
+        0.6960116253134543,
+        0.6965369174498462,
+        0.69747097892566
+      ],
+      "val_std": [
+        0.022948890904044186,
+        0.01844566597039353,
+        0.02822842503534888,
+        0.02923503614816047,
+        0.02897526992516812,
+        0.028211599941198262,
+        0.027829154114267014,
+        0.027375121888542273
+      ]
+    },
+    "tier_Low": {
+      "sizes": [
+        49,
+        88,
+        127,
+        166,
+        205,
+        245
+      ],
+      "train_mean": [
+        0.8345464887231009,
+        0.8087598404310826,
+        0.7904044201428564,
+        0.7897474690839197,
+        0.7895543137428781,
+        0.7939635198353523
+      ],
+      "val_mean": [
+        0.7126734531728204,
+        0.744581722586134,
+        0.7565174905924286,
+        0.7602662753073195,
+        0.7626019589492956,
+        0.7666487505310424
+      ],
+      "val_std": [
+        0.10158811871945586,
+        0.06397212171359531,
+        0.05642890704987637,
+        0.054694686738158534,
+        0.054454138757968916,
+        0.051046782091847154
+      ]
+    },
+    "tier_Medium": {
+      "sizes": [
+        100,
+        180,
+        260,
+        339,
+        420,
+        500
+      ],
+      "train_mean": [
+        0.7860155563763007,
+        0.7840463168771685,
+        0.7853163862162325,
+        0.7798777989418662,
+        0.7798683816072529,
+        0.7770387624640563
+      ],
+      "val_mean": [
+        0.7359584940530461,
+        0.7573496963201833,
+        0.7594071561299496,
+        0.7616000834040313,
+        0.7615495536840319,
+        0.7609381308731047
+      ],
+      "val_std": [
+        0.04247413115670568,
+        0.042196071438738256,
+        0.0416310896541092,
+        0.04389204323352755,
+        0.04347539176456771,
+        0.04507120385365226
+      ]
+    },
+    "tier_High": {
+      "sizes": [
+        42,
+        77,
+        111,
+        145,
+        179,
+        214
+      ],
+      "train_mean": [
+        0.8458355469000918,
+        0.8281608596745462,
+        0.8068572863111696,
+        0.8114822205512354,
+        0.8131047730184869,
+        0.8140528820829631
+      ],
+      "val_mean": [
+        0.7445795857567317,
+        0.7694618462547524,
+        0.7798544999922724,
+        0.7765914109063007,
+        0.7813711519116416,
+        0.7802490289669978
+      ],
+      "val_std": [
+        0.07090244282150422,
+        0.06653980302354791,
+        0.05772971989326235,
+        0.060084797606974695,
+        0.05585033547406736,
+        0.06086468105340271
+      ]
+    }
+  },
+  "depth_curve": [
+    {
+      "depth": 1,
+      "train": 0.5614583333333333,
+      "test": 0.6125,
+      "cv": 0.5716666666666667
+    },
+    {
+      "depth": 2,
+      "train": 0.7208333333333333,
+      "test": 0.7416666666666667,
+      "cv": 0.725
+    },
+    {
+      "depth": 3,
+      "train": 0.8947916666666667,
+      "test": 0.9125,
+      "cv": 0.8975
+    },
+    {
+      "depth": 4,
+      "train": 0.9322916666666666,
+      "test": 0.9458333333333333,
+      "cv": 0.9241666666666667
+    },
+    {
+      "depth": 5,
+      "train": 0.9364583333333333,
+      "test": 0.9375,
+      "cv": 0.915
+    },
+    {
+      "depth": 6,
+      "train": 0.9447916666666667,
+      "test": 0.9125,
+      "cv": 0.9033333333333333
+    },
+    {
+      "depth": 7,
+      "train": 0.959375,
+      "test": 0.9333333333333333,
+      "cv": 0.8908333333333334
+    },
+    {
+      "depth": 8,
+      "train": 0.9645833333333333,
+      "test": 0.9333333333333333,
+      "cv": 0.8800000000000001
+    },
+    {
+      "depth": 9,
+      "train": 0.9770833333333333,
+      "test": 0.9166666666666666,
+      "cv": 0.8658333333333333
+    },
+    {
+      "depth": 10,
+      "train": 0.984375,
+      "test": 0.9083333333333333,
+      "cv": 0.8591666666666666
+    },
+    {
+      "depth": 11,
+      "train": 0.9885416666666667,
+      "test": 0.9041666666666667,
+      "cv": 0.8533333333333333
+    },
+    {
+      "depth": 12,
+      "train": 0.9927083333333333,
+      "test": 0.8958333333333334,
+      "cv": 0.8516666666666666
+    },
+    {
+      "depth": 13,
+      "train": 0.9958333333333333,
+      "test": 0.9,
+      "cv": 0.8408333333333333
+    },
+    {
+      "depth": 14,
+      "train": 0.9979166666666667,
+      "test": 0.8916666666666667,
+      "cv": 0.8416666666666668
+    },
+    {
+      "depth": 15,
+      "train": 0.9989583333333333,
+      "test": 0.8875,
+      "cv": 0.8425
+    }
+  ],
+  "regression_comparison": [
+    {
+      "model": "Linear Regression (global)",
+      "MAE": 5697.9851928100825,
+      "RMSE": 7517.637424441097,
+      "R2": 0.6912808079596031,
+      "train_R2": 0.7031518073926565,
+      "gap": 0.011870999433053364,
+      "cv_R2": 0.6954178914231022
+    },
+    {
+      "model": "Ridge a=1 (global)",
+      "MAE": 5698.807172054619,
+      "RMSE": 7517.258851590682,
+      "R2": 0.6913119001113457,
+      "train_R2": 0.7031508813068907,
+      "gap": 0.01183898119554505,
+      "cv_R2": 0.6954277335586274
+    },
+    {
+      "model": "Lasso a=1 (global)",
+      "MAE": 5698.268236092137,
+      "RMSE": 7517.777185755324,
+      "R2": 0.6912693289805978,
+      "train_R2": 0.7031517032563771,
+      "gap": 0.011882374275779317,
+      "cv_R2": 0.6954182933178267
+    },
+    {
+      "model": "Decision Tree Reg (d=5)",
+      "MAE": 2338.253965094195,
+      "RMSE": 5186.853286488307,
+      "R2": 0.8530367305743441,
+      "train_R2": 0.9216645107195857,
+      "gap": 0.06862778014524151,
+      "cv_R2": 0.8563888771236284
+    },
+    {
+      "model": "Random Forest Reg",
+      "MAE": 2313.328558182872,
+      "RMSE": 4905.285486359392,
+      "R2": 0.8685594239439719,
+      "train_R2": 0.9831506427812265,
+      "gap": 0.11459121883725465,
+      "cv_R2": 0.8727445361424383
+    },
+    {
+      "model": "Gradient Boosting Reg",
+      "MAE": 2224.13323236024,
+      "RMSE": 4685.638351578405,
+      "R2": 0.8800670797031213,
+      "train_R2": 0.9377341980588936,
+      "gap": 0.05766711835577232,
+      "cv_R2": 0.8816210903364767
+    }
+  ],
+  "oof": {
+    "tier_accuracy": 0.9241666666666667,
+    "MAE": 1908.099309585373,
+    "RMSE": 5024.012825023794,
+    "R2": 0.8760729518693845,
+    "premium_mean": 25027.357675,
+    "premium_median": 19562.699999999997,
+    "premium_min": 7237.06,
+    "premium_max": 69752.26,
+    "loading": 0.22999999999999998
+  },
+  "premium_by_smoker": {
+    "count": {
+      "no": 836,
+      "yes": 364
+    },
+    "mean": {
+      "no": 17097.75,
+      "yes": 43239.31
+    },
+    "median": {
+      "no": 17995.21,
+      "yes": 53518.65
+    },
+    "std": {
+      "no": 9509.76,
+      "yes": 18069.07
+    }
+  },
+  "premium_by_tier": {
+    "count": {
+      "Low": 307,
+      "Medium": 625,
+      "High": 268
+    },
+    "mean": {
+      "Low": 9998.28,
+      "Medium": 20216.61,
+      "High": 53462.6
+    },
+    "median": {
+      "Low": 9241.64,
+      "Medium": 19632.93,
+      "High": 56574.98
+    }
+  },
+  "smoker_table": {
+    "n": {
+      "no": 836,
+      "yes": 364
+    },
+    "mean_age": {
+      "no": 41.21,
+      "yes": 40.95
+    },
+    "mean_bmi": {
+      "no": 27.76,
+      "yes": 28.09
+    },
+    "mean_exercise": {
+      "no": 4.01,
+      "yes": 3.98
+    },
+    "mean_health": {
+      "no": 80.47,
+      "yes": 34.56
+    },
+    "median_health": {
+      "no": 80.53,
+      "yes": 33.94
+    },
+    "mean_charge": {
+      "no": 14473.62,
+      "yes": 34510.79
+    },
+    "median_charge": {
+      "no": 14379.32,
+      "yes": 42486.35
+    },
+    "mean_premium": {
+      "no": 17097.75,
+      "yes": 43239.31
+    },
+    "median_premium": {
+      "no": 17995.21,
+      "yes": 53518.65
+    }
+  },
+  "smoker_health_ttest": {
+    "t": -74.32189266917933,
+    "p": 0.0
+  },
+  "premium_gap_smoker": 26141.559999999998,
+  "fairness": {
+    "sex": {
+      "n": {
+        "female": 597.0,
+        "male": 603.0
+      },
+      "mean_premium": {
+        "female": 26194.8,
+        "male": 23871.53
+      },
+      "mean_actual": {
+        "female": 21645.98,
+        "male": 19468.03
+      },
+      "MAE": {
+        "female": 1999.61,
+        "male": 1817.5
+      },
+      "MAE_pct_of_actual": {
+        "female": 9.24,
+        "male": 9.34
+      },
+      "mean_residual": {
+        "female": -349.39,
+        "male": -60.28
+      }
+    },
+    "smoker": {
+      "n": {
+        "no": 836.0,
+        "yes": 364.0
+      },
+      "mean_premium": {
+        "no": 17097.75,
+        "yes": 43239.31
+      },
+      "mean_actual": {
+        "no": 14473.62,
+        "yes": 34510.79
+      },
+      "MAE": {
+        "no": 1556.02,
+        "yes": 2716.73
+      },
+      "MAE_pct_of_actual": {
+        "no": 10.75,
+        "yes": 7.87
+      },
+      "mean_residual": {
+        "no": -573.01,
+        "yes": 643.12
+      }
+    },
+    "region": {
+      "n": {
+        "east": 302.0,
+        "north": 305.0,
+        "south": 299.0,
+        "west": 294.0
+      },
+      "mean_premium": {
+        "east": 24784.6,
+        "north": 24421.89,
+        "south": 24544.56,
+        "west": 26395.85
+      },
+      "mean_actual": {
+        "east": 20057.58,
+        "north": 20341.78,
+        "south": 20373.4,
+        "west": 21457.81
+      },
+      "MAE": {
+        "east": 1495.16,
+        "north": 1942.13,
+        "south": 2035.09,
+        "west": 2167.83
+      },
+      "MAE_pct_of_actual": {
+        "east": 7.45,
+        "north": 9.55,
+        "south": 9.99,
+        "west": 10.1
+      },
+      "mean_residual": {
+        "east": 92.51,
+        "north": -486.59,
+        "south": -418.47,
+        "west": 2.23
+      }
+    },
+    "age_group": {
+      "n": {
+        "18-29": 308.0,
+        "30-39": 222.0,
+        "40-49": 276.0,
+        "50-64": 394.0
+      },
+      "mean_premium": {
+        "18-29": 16941.5,
+        "30-39": 20534.53,
+        "40-49": 25033.59,
+        "50-64": 33875.4
+      },
+      "mean_actual": {
+        "18-29": 14122.99,
+        "30-39": 16810.68,
+        "40-49": 20339.08,
+        "50-64": 27833.59
+      },
+      "MAE": {
+        "18-29": 1458.0,
+        "30-39": 1331.54,
+        "40-49": 1783.77,
+        "50-64": 2671.91
+      },
+      "MAE_pct_of_actual": {
+        "18-29": 10.32,
+        "30-39": 7.92,
+        "40-49": 8.77,
+        "50-64": 9.6
+      },
+      "mean_residual": {
+        "18-29": -349.41,
+        "30-39": -115.94,
+        "40-49": 13.43,
+        "50-64": -292.61
+      }
+    },
+    "bmi_category": {
+      "n": {
+        "Underweight": 72.0,
+        "Normal": 309.0,
+        "Overweight": 397.0,
+        "Obese": 422.0
+      },
+      "mean_premium": {
+        "Underweight": 17681.94,
+        "Normal": 18595.98,
+        "Overweight": 21816.61,
+        "Obese": 34010.37
+      },
+      "mean_actual": {
+        "Underweight": 14384.68,
+        "Normal": 15056.15,
+        "Overweight": 18376.19,
+        "Obese": 27674.12
+      },
+      "MAE": {
+        "Underweight": 2095.97,
+        "Normal": 1185.85,
+        "Overweight": 1686.95,
+        "Obese": 2612.95
+      },
+      "MAE_pct_of_actual": {
+        "Underweight": 14.57,
+        "Normal": 7.88,
+        "Overweight": 9.18,
+        "Obese": 9.44
+      },
+      "mean_residual": {
+        "Underweight": -9.13,
+        "Normal": 62.54,
+        "Overweight": -639.11,
+        "Obese": -23.41
+      }
+    }
+  },
+  "validation": {
+    "duplicates_remaining": 0,
+    "missing_remaining": 0,
+    "health_score_missing": 0,
+    "premium_missing": 0,
+    "premium_nonfinite": 0,
+    "premium_negative": 0,
+    "explanations_missing": 0,
+    "unique_explanations": 1096,
+    "rows": 1200,
+    "cols": 32,
+    "extreme_residuals_gt3sd": 43
+  },
+  "permutation_importance_global": {
+    "age": {
+      "mean": 0.33911906778381024,
+      "std": 0.037176721382025275
+    },
+    "bmi": {
+      "mean": 0.2484041441072771,
+      "std": 0.02178591095737428
+    },
+    "children": {
+      "mean": 0.0013300448965443098,
+      "std": 0.0012389458279156466
+    },
+    "exercise_freq": {
+      "mean": 0.00018886033372923864,
+      "std": 0.0007783909683451692
+    },
+    "sex_male": {
+      "mean": 0.001041160791620092,
+      "std": 0.0008267794860113149
+    },
+    "smoker_yes": {
+      "mean": 0.7988608853973692,
+      "std": 0.06224017734380132
+    },
+    "region_north": {
+      "mean": 0.0017280868164238571,
+      "std": 0.001165338734208251
+    },
+    "region_south": {
+      "mean": -0.00019218450528100858,
+      "std": 0.0022035241934950426
+    },
+    "region_west": {
+      "mean": 0.0004875936934842858,
+      "std": 0.0005095291007575076
+    }
+  },
+  "permutation_importance_clf": {
+    "age": {
+      "mean": 0.34944444444444434,
+      "std": 0.025948072551459422
+    },
+    "bmi": {
+      "mean": 0.25805555555555554,
+      "std": 0.022743877211620793
+    },
+    "children": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "exercise_freq": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "sex_male": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "smoker_yes": {
+      "mean": 0.34555555555555556,
+      "std": 0.024578232364692944
+    },
+    "region_north": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "region_south": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "region_west": {
+      "mean": 0.0,
+      "std": 0.0
+    }
+  },
+  "single_strongest": {
+    "Low": "age",
+    "Medium": "smoker_yes",
+    "High": "bmi"
+  },
+  "clf_depth": 4
+}
